@@ -1,6 +1,6 @@
 let express = require("express")
 let app = express()
-// const redirectSSL = require('redirect-ssl')
+ const redirectSSL = require('redirect-ssl')
 const port = process.env.PORT || 7000  
 
 const books = [
@@ -119,9 +119,9 @@ const books = [
   ]
 
 // Add middleware
-// app.use(redirectSSL.create({
-//     exclude: ['localhost']
-//  }))
+app.use(redirectSSL.create({
+    exclude: ['localhost']
+ }))
 
  app.use(express.json())
 app.get("/",(req,res)=>{
